@@ -21,6 +21,10 @@
                 link += '&scope=openid%20profile';
                 window.location.href = link;
             });
+            liff.getProfile()
+                .then(function(profile) {
+                    console.log(profile);
+                });
         </script>
     </body>
     </html>
