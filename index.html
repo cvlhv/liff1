@@ -8,6 +8,28 @@
         <title>LINE Login Demo</title>
     </head>
     <body>
+        var liffID = '1660698576-5nQwwy7K';
+
+        liff.init({
+            liffId: liffID
+        }).then(function() {
+            console.log('LIFF init');
+             // 這邊開始寫使用其他功能 
+        }).catch(function(error) {
+        console.log(error);
+        });
+        liff.getLanguage();
+        // LIFF SDK 的版本
+        liff.getVersion();
+        // 回傳是否由 LINE App 存取
+        liff.isInClient();
+        // 使用者是否登入 LINE 帳號
+        liff.isLoggedIn();
+        // 回傳使用者作業系統：ios、android、web
+        liff.getOS();
+        // 使用者的 LINE 版本
+        liff.getLineVersion();
+        
         <button id="lineLoginBtn">LINE 登入</button>
         <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js'></script>
         <script>
@@ -22,6 +44,7 @@
                 link += '&scope=openid%20profile';
                 window.location.href = link;
             });
+            liff.getContext();
             liff.getProfile()
                 .then(function(profile) {
                     console.log(profile);
